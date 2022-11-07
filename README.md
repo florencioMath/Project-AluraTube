@@ -22,7 +22,7 @@ Esse projeto está sendo desenvolvido na imersão Imersão React da [**Alura**](
 
 ## <a id="imagens">🤳 Imagens</a>
 <p align="justify">
-Aqui serão disponibilizados algumas imagens e GIFs dofuncionamento do aplicativo.
+Aqui serão disponibilizadas algumas imagens e GIFs do funcionamento do aplicativo. - Projeto está aindaem desenvolvimento.
 </p>
 
 
