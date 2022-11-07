@@ -129,5 +129,17 @@
         "thumb": "https://img.youtube.com/vi/0JWMVc1CqpA/hqdefault.jpg"
       }
     ]
-  }
+  },
+  "favorites": [
+    {
+      "name": "@florencioMath",
+      "url": "https://github.com/florencioMath",
+      "thumb": "https://avatars.githubusercontent.com/u/68713424?v=4"
+    },
+    {
+      "name": "@omariosouto",
+      "url": "https://github.com/omariosouto",
+      "thumb": "https://avatars.githubusercontent.com/u/13791385?v=4"
+    }
+  ]
 }

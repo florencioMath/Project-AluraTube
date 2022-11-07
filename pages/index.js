@@ -4,7 +4,6 @@ import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header";
 import Timeline, { StyledTimeline } from "../src/components/Timeline";
-import Banner from "../src/components/Banner";
 
 function HomePage() {
   return (
@@ -19,7 +18,9 @@ function HomePage() {
       >
         <Menu />
         <Header />
-        <Timeline playlists={config.playlists}>Conteúdo</Timeline>
+        <Timeline playlists={config.playlists} favorites={config.favorites}>
+          Conteúdo
+        </Timeline>
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import StyledFavorites from "./Favorites";
 
 export const StyledTimeline = styled.div`
   flex: 1;
@@ -47,26 +48,31 @@ export const StyledTimeline = styled.div`
 
 export default function Timeline(props) {
   const playlistNames = Object.keys(props.playlists);
+  const favorites = props.favorites;
   return (
-    <StyledTimeline>
-      {playlistNames.map((playlistName) => {
-        const videos = props.playlists[playlistName];
-        return (
-          <section key={videos[0].url}>
-            <h2>{playlistName}</h2>
-            <div>
-              {videos.map((video) => {
-                return (
-                  <a href={video.url} key={video.url}>
-                    <img src={video.thumb} />
-                    <span>{video.title}</span>
-                  </a>
-                );
-              })}
-            </div>
-          </section>
-        );
-      })}
-    </StyledTimeline>
+    <>
+      <StyledTimeline>
+        {playlistNames.map((playlistName) => {
+          const videos = props.playlists[playlistName];
+          return (
+            <section key={videos[0].url}>
+              <h2>{playlistName}</h2>
+              <div>
+                {videos.map((video) => {
+                  return (
+                    <a href={video.url} key={video.url}>
+                      <img src={video.thumb} />
+                      <span>{video.title}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
+      </StyledTimeline>
+
+      <StyledFavorites favorites={favorites}></StyledFavorites>
+    </>
   );
 }
