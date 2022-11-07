@@ -4,8 +4,9 @@
 <ul>
   <li><a href="#projeto">💻 Projeto</a></li>
   <li><a href="#imagens">🤳 Imagens</a></li>
-  <li><a href="#dev">👩‍💻 Dev</a></li>
+  <li><a href="#tecnologias">🏛️ Tecnologias</a></li>
   <li><a href="#licenca">📃 Licença</a></li>
+  <li><a href="#dev">👩‍💻 Dev</a></li>
 </ul>
 
 ## <a id="projeto">💻 Projeto</a>
@@ -24,6 +25,14 @@ Esse projeto está sendo desenvolvido na imersão Imersão React da [**Alura**](
 <p align="justify">
 Aqui serão disponibilizadas algumas imagens e GIFs do funcionamento do aplicativo. - Projeto está aindaem desenvolvimento.
 </p>
+
+## <a id="tecnologias">🏛️ Tecnologias</a>
+<ul>
+  <li>React</li>
+  <li>NextJS</li>
+  <li>Styled Components</li>
+  <li>NODE e NPM</li>
+</ul>
 
 
 ## <a id="licenca">📃 Licença</a>
