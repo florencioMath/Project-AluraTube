@@ -27,6 +27,7 @@ Aqui serão disponibilizados algumas imagens e GIFs dofuncionamento do aplicativ
 
 
 ## <a id="licenca">📃 Licença</a>
+[MIT License](./LICENSE.md)  ©[Matheus Florêncio](https://github.com/florencioMath)
 
 
 ## <a id="dev">👩‍💻 Dev</a> 
