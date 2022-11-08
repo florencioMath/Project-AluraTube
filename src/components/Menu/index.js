@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Search from "./components/Search";
+import ToggleNightMode from "./components/ToggleNightMode";
 
 const StyledMenu = styled.header`
   display: flex;
@@ -35,6 +36,7 @@ export default function Menu({ valorDoFiltro, setValorDoFiltro }) {
         valorDoFiltro={valorDoFiltro}
         setValorDoFiltro={setValorDoFiltro}
       />
+      <ToggleNightMode />
     </StyledMenu>
   );
 }
