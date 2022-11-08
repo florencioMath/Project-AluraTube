@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledToggleNightMode = styled.div`
+  background-color: lightcoral;
   .wrapperToggle {
     background: #333333;
+    grid-template-columns: repeat(2, 1fr);
     display: grid;
     align-items: center;
     height: 26px;
     width: 50px;
     border-radius: 17px;
-    grid-template-columns: repeat(2, 1fr);
-    z-index: -1;
   }
   .lightMode {
     background-color: #fafafa;
@@ -30,11 +30,11 @@ const StyledToggleNightMode = styled.div`
     grid-column: 2;
     grid-row: 1;
   }
-  .active {
-    opacity: calc(0);
-  }
 
   span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     height: 24px;
     width: 24px;
