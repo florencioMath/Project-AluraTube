@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledToggleNightMode = styled.div`
-  background-color: lightcoral;
   .wrapperToggle {
     background: #333333;
     grid-template-columns: repeat(2, 1fr);
@@ -38,6 +37,7 @@ const StyledToggleNightMode = styled.div`
     border-radius: 50%;
     height: 24px;
     width: 24px;
+    font-size: 16px;
   }
 `;
 
