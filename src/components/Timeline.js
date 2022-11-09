@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import StyledFavorites from "./Favorites";
 
@@ -68,10 +69,13 @@ export default function Timeline({ searchValue, ...props }) {
                   .map((video) => {
                     countVideos++;
                     return (
-                      <a href={video.url} key={video.url} target="_blank">
+                      <Link
+                        href={{ pathname: "/video", query: video }}
+                        key={video.url}
+                      >
                         <img src={video.thumb} />
                         <span>{video.title}</span>
-                      </a>
+                      </Link>
                     );
                   })}
                 {countVideos === 0 ? "Nenhum vídeo encontrado." : ""}
