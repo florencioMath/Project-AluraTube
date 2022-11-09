@@ -49,6 +49,7 @@ export const StyledTimeline = styled.div`
 export default function Timeline({ searchValue, ...props }) {
   const playlistNames = Object.keys(props.playlists);
   const favorites = props.favorites;
+  let countVideos = 0;
   return (
     <>
       <StyledTimeline>
@@ -65,6 +66,7 @@ export default function Timeline({ searchValue, ...props }) {
                     return titleNormalized.includes(searchValueNormalized);
                   })
                   .map((video) => {
+                    countVideos++;
                     return (
                       <a href={video.url} key={video.url} target="_blank">
                         <img src={video.thumb} />
@@ -72,6 +74,7 @@ export default function Timeline({ searchValue, ...props }) {
                       </a>
                     );
                   })}
+                {countVideos === 0 ? "Nenhum vídeo encontrado." : ""}
               </div>
             </section>
           );

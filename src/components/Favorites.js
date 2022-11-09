@@ -27,7 +27,7 @@ const StyledFavorites = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
-    color: #000000;
+    color: ${({ theme }) => theme.textColorBase || "#222222"};
   }
 
   a {
