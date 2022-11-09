@@ -28,11 +28,9 @@ const StyledVideo = styled.div`
 export default function Video() {
   const router = useRouter();
   const data = router.query;
-  const [valorDoFiltro, setValorDoFiltro] = React.useState("");
-
   return (
     <>
-      <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
+      <Menu />
       <StyledVideo>
         <section>
           <h2>{data.title}</h2>

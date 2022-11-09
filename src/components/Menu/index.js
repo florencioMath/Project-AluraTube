@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import DarkModeSwitch from "./components/DarModeSwitch";
 import Search from "./components/Search";
@@ -29,15 +30,21 @@ const StyledMenu = styled.header`
 `;
 
 export default function Menu({ valorDoFiltro, setValorDoFiltro }) {
+  const router = useRouter();
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
-      <Search
-        valorDoFiltro={valorDoFiltro}
-        setValorDoFiltro={setValorDoFiltro}
-      />
+      {router.pathname === "/" ? (
+        <Search
+          valorDoFiltro={valorDoFiltro}
+          setValorDoFiltro={setValorDoFiltro}
+        />
+      ) : (
+        ""
+      )}
+
       <DarkModeSwitch />
     </StyledMenu>
   );
