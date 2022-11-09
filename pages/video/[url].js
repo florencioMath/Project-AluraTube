@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import styled from "styled-components";
-import Menu from "../src/components/Menu";
+import Menu from "../../src/components/Menu";
 
 const StyledVideo = styled.div`
   h2 {
@@ -27,18 +27,18 @@ const StyledVideo = styled.div`
 
 export default function Video() {
   const router = useRouter();
-  const video = router.query;
-  const videoUrl = video.url.replace("https://www.youtube.com/watch?v=", "");
+  const data = router.query;
+  const [valorDoFiltro, setValorDoFiltro] = React.useState("");
 
   return (
     <>
+      <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
       <StyledVideo>
-        <Menu />
         <section>
-          <h2>{video.title}</h2>
+          <h2>{data.title}</h2>
           <iframe
             className="videoPlayer"
-            src={`https://www.youtube.com/embed/${videoUrl}`}
+            src={`https://www.youtube.com/embed/${data.url}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

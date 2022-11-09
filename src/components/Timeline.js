@@ -70,7 +70,9 @@ export default function Timeline({ searchValue, ...props }) {
                     countVideos++;
                     return (
                       <Link
-                        href={{ pathname: "/video", query: video }}
+                        href={`/video/${video["url"].split("v=")[1]}?title=${
+                          video.title
+                        }`}
                         key={video.url}
                       >
                         <img src={video.thumb} />
