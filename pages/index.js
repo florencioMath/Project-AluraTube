@@ -3,7 +3,7 @@ import { CSSReset } from "../src/components/CSSReset";
 import config from "../config.json";
 import Menu from "../src/components/Menu";
 import Header from "../src/components/Header";
-import Timeline, { StyledTimeline } from "../src/components/Timeline";
+import Timeline from "../src/components/Timeline";
 
 function HomePage() {
   const [valorDoFiltro, setValorDoFiltro] = React.useState("");
