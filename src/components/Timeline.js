@@ -68,11 +68,19 @@ export default function Timeline({ searchValue, ...props }) {
                   })
                   .map((video) => {
                     countVideos++;
+                    const video_id = video.url.split("v=")[1];
                     return (
                       <Link
-                        href={`/video/${video["url"].split("v=")[1]}?title=${
-                          video.title
-                        }`}
+                        // href={`/video/${video["url"].split("v=")[1]}?title=${
+                        //   video.title
+                        // }`}
+                        href={{
+                          pathname: "/video",
+                          query: {
+                            id: video_id,
+                            title: video.title,
+                          },
+                        }}
                         key={video.url}
                       >
                         <img src={video.thumb} />

@@ -27,16 +27,16 @@ const StyledVideo = styled.div`
 
 export default function Video() {
   const router = useRouter();
-  const data = router.query;
+  const { id, title } = router.query;
   return (
     <>
       <Menu />
       <StyledVideo>
         <section>
-          <h2>{data.title}</h2>
+          <h2>{title}</h2>
           <iframe
             className="videoPlayer"
-            src={`https://www.youtube.com/embed/${data.url}`}
+            src={`https://www.youtube.com/embed/${id}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
