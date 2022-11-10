@@ -71,9 +71,6 @@ export default function Timeline({ searchValue, ...props }) {
                     const video_id = video.url.split("v=")[1];
                     return (
                       <Link
-                        // href={`/video/${video["url"].split("v=")[1]}?title=${
-                        //   video.title
-                        // }`}
                         href={{
                           pathname: "/video",
                           query: {
