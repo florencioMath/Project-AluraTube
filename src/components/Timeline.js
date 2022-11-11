@@ -68,13 +68,33 @@ export default function Timeline({ searchValue, ...props }) {
                   })
                   .map((video) => {
                     countVideos++;
-                    const video_id = video.url.split("v=")[1];
+                    let video_id = "";
+                    if (video.url.includes(".be/")) {
+                      video_id = video.url.split(".be/")[1];
+                    }
+
+                    if (video.url.includes("/embed/")) {
+                      video_id = video.url.split("/embed/")[1];
+                    }
+
+                    if (video.url.includes("com/v/")) {
+                      video_id = video.url.split("com/v/")[1];
+                    }
+
+                    if (video.url.includes("/watch?v=")) {
+                      video_id = video.url.split("/watch?v=")[1];
+                      let ampersandPosition = video_id.indexOf("&");
+                      if (ampersandPosition != -1) {
+                        video_id = video_id.substring(0, ampersandPosition);
+                      }
+                    }
+
                     return (
                       <Link
                         href={{
                           pathname: "/video",
                           query: {
-                            id: video_id,
+                            id: video.url,
                             title: video.title,
                           },
                         }}
