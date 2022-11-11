@@ -51,7 +51,7 @@ function HomePage() {
         <Timeline
           searchValue={valorDoFiltro}
           favorites={config.favorites}
-          playlists={playlists}
+          playlists={{ ...playlists, ...config.playlists }}
         ></Timeline>
       </div>
     </>
