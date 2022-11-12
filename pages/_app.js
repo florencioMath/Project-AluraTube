@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }) {
   const contexto = React.useContext(ColorModeContext);
   return (
     <ThemeProvider theme={theme[contexto.mode]}>
+      <title>AluraTube | Matheus Florêncio</title>
       <CSSReset />
       <Component {...pageProps} />
       <RegisterVideos />
