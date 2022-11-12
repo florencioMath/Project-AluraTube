@@ -134,9 +134,7 @@ export default function RegisterVideo() {
                 // url: formCadastro.values.url,
                 thumb: getThumbnail(formCadastro.values.url),
               })
-              .then((oqueveio) => {
-                console.log("oqueveio", oqueveio);
-              })
+              .then(() => {})
               .catch((err) => {
                 console.log(err);
               });
