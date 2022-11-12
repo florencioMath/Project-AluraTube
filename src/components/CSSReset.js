@@ -6,11 +6,29 @@ export const CSSReset = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #b3b2b3 #ffffff;
   }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.backgroundLevel2 || "#313131"};
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #b3b2b3;
+    border-radius: 10px;
+  }
+
   body {
     font-family: sans-serif;
     background-color: ${({ theme }) => theme.backgroundBase};
     color: ${({ theme }) => theme.textColorBase};
+    overflow-x: hidden;
   }
   /* NextJS */
   html {
