@@ -13,43 +13,13 @@ const PUBLIC_KEY =
 const supabase = createClient(PROJECT_URL, PUBLIC_KEY);
 
 function HomePage() {
-  const service = videoService();
   const [valorDoFiltro, setValorDoFiltro] = React.useState("");
   const [playlists, setPlaylists] = React.useState({});
+  const service = videoService({ playlists, setPlaylists });
 
   React.useEffect(() => {
-    service.getAllVideos().then((dados) => {
-      const novasPlaylists = {};
-      dados.data?.forEach((video) => {
-        if (!novasPlaylists[video.playlist])
-          novasPlaylists[video.playlist] = [];
-        novasPlaylists[video.playlist] = [
-          video,
-          ...novasPlaylists[video.playlist],
-        ];
-      });
-
-      setPlaylists(novasPlaylists);
-    });
-
-    supabase
-      .channel("*")
-      .on("postgres_changes", { event: "*", schema: "*" }, (payload) => {
-        service.getAllVideos().then((dados) => {
-          const novasPlaylists = {};
-          dados.data?.forEach((video) => {
-            if (!novasPlaylists[video.playlist])
-              novasPlaylists[video.playlist] = [];
-            novasPlaylists[video.playlist] = [
-              video,
-              ...novasPlaylists[video.playlist],
-            ];
-          });
-
-          setPlaylists(novasPlaylists);
-        });
-      })
-      .subscribe();
+    geraTimeline(service, setPlaylists);
+    service.refresh();
   }, []);
 
   return (
@@ -67,11 +37,6 @@ function HomePage() {
           setValorDoFiltro={setValorDoFiltro}
         />
         <Header />
-        {/* <Timeline
-          playlists={config.playlists}
-          favorites={config.favorites}
-          searchValue={valorDoFiltro}
-        ></Timeline> */}
         <Timeline
           searchValue={valorDoFiltro}
           favorites={config.favorites}
@@ -83,3 +48,18 @@ function HomePage() {
 }
 
 export default HomePage;
+
+export function geraTimeline(service, setPlaylists) {
+  service.getAllVideos().then((dados) => {
+    const novasPlaylists = {};
+    dados.data?.forEach((video) => {
+      if (!novasPlaylists[video.playlist]) novasPlaylists[video.playlist] = [];
+      novasPlaylists[video.playlist] = [
+        video,
+        ...novasPlaylists[video.playlist],
+      ];
+    });
+
+    setPlaylists(novasPlaylists);
+  });
+}

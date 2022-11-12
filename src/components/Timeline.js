@@ -98,7 +98,7 @@ export default function Timeline({ searchValue, ...props }) {
                             title: video.title,
                           },
                         }}
-                        key={video.url}
+                        key={video.url + video.title}
                       >
                         <img src={video.thumb} />
                         <span>{video.title}</span>
