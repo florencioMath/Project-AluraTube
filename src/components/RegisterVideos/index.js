@@ -1,6 +1,9 @@
 import React from "react";
 import { StyledRegisterVideo } from "./styles";
 import { createClient } from "@supabase/supabase-js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const PROJECT_URL = "https://nwvjeubzjdrznkhhttpv.supabase.co";
 const PUBLIC_KEY =
@@ -117,7 +120,7 @@ export default function RegisterVideo() {
           formCadastro.clearForm();
         }}
       >
-        +
+        <FontAwesomeIcon icon={faPlus} />
       </button>
       {formVisible && (
         <form
@@ -131,7 +134,6 @@ export default function RegisterVideo() {
                 playlist: "Upload dos Usuário",
                 title: formCadastro.values.titulo,
                 url: getVideoId(formCadastro.values.url),
-                // url: formCadastro.values.url,
                 thumb: getThumbnail(formCadastro.values.url),
               })
               .then(() => {})
@@ -145,8 +147,9 @@ export default function RegisterVideo() {
               className="close-modal"
               onClick={() => setFormVisible(false)}
             >
-              x
+              <FontAwesomeIcon icon={faXmark} />
             </button>
+            {/* ------- */}
             <input
               placeholder="Título do vídeo"
               name="titulo"
@@ -165,7 +168,6 @@ export default function RegisterVideo() {
               pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
             />
             <button type="submit">Cadastrar</button>
-
             <span>Preview</span>
             {formCadastro.video_id && (
               <>
