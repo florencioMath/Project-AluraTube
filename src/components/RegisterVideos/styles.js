@@ -78,7 +78,6 @@ export const StyledRegisterVideo = styled.div`
 
   .wrapperPreview {
     background-color: ${({ theme }) => theme.backgroundLevel2};
-    background: lightcoral;
     max-width: 420px;
     width: 100%;
   }
