@@ -78,7 +78,9 @@ export const StyledRegisterVideo = styled.div`
 
   .wrapperPreview {
     background-color: ${({ theme }) => theme.backgroundLevel2};
-    padding: 16px;
+    background: lightcoral;
+    max-width: 420px;
+    width: 100%;
   }
 
   h2 {
@@ -87,6 +89,7 @@ export const StyledRegisterVideo = styled.div`
     flex-direction: row;
     word-break: break-word;
     overflow: hidden;
+    padding: 16px;
   }
 
   .videoPreview {

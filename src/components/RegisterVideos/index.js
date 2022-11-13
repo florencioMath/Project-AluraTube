@@ -173,7 +173,7 @@ export default function RegisterVideo() {
                   <h2>{formCadastro.values.titulo}</h2>
                   <div className="videoPreview">
                     <iframe
-                      width="410"
+                      width="310"
                       height="220"
                       src={`https://www.youtube.com/embed/${formCadastro.video_id}`}
                       title="YouTube video player"
