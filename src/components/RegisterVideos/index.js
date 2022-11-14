@@ -11,26 +11,7 @@ const PUBLIC_KEY =
 const supabase = createClient(PROJECT_URL, PUBLIC_KEY);
 
 function getThumbnail(url) {
-  let video_url = "";
-  if (url.includes(".be/")) {
-    video_url = url.split(".be/")[1];
-  }
-
-  if (url.includes("/embed/")) {
-    video_url = url.split("/embed/")[1];
-  }
-
-  if (url.includes("com/v/")) {
-    video_url = url.split("com/v/")[1];
-  }
-
-  if (url.includes("/watch?v=")) {
-    video_url = url.split("/watch?v=")[1];
-    let ampersandPosition = video_url.indexOf("&");
-    if (ampersandPosition != -1) {
-      video_url = video_url.substring(0, ampersandPosition);
-    }
-  }
+  let video_url = getVideoId(url);
   return `https://img.youtube.com/vi/${video_url}/hqdefault.jpg`;
 }
 
@@ -62,26 +43,7 @@ function getVideoId(videoID) {
 function useForm(propsForm) {
   const [values, setValues] = React.useState(propsForm.initialValues);
 
-  let video_id = "";
-  if (values.url.includes(".be/")) {
-    video_id = values.url.split(".be/")[1];
-  }
-
-  if (values.url.includes("/embed/")) {
-    video_id = values.url.split("/embed/")[1];
-  }
-
-  if (values.url.includes("com/v/")) {
-    video_id = values.url.split("com/v/")[1];
-  }
-
-  if (values.url.includes("/watch?v=")) {
-    video_id = values.url.split("/watch?v=")[1];
-    let ampersandPosition = video_id.indexOf("&");
-    if (ampersandPosition != -1) {
-      video_id = video_id.substring(0, ampersandPosition);
-    }
-  }
+  let video_id = getVideoId(values.url);
 
   return {
     values,
@@ -169,23 +131,21 @@ export default function RegisterVideo() {
             />
             <button type="submit">Cadastrar</button>
             <span>Preview</span>
+            <h2>{formCadastro.values.titulo}</h2>
             {formCadastro.video_id && (
-              <>
-                <div className="wrapperPreview">
-                  <h2>{formCadastro.values.titulo}</h2>
-                  <div className="videoPreview">
-                    <iframe
-                      width="310"
-                      height="220"
-                      src={`https://www.youtube.com/embed/${formCadastro.video_id}`}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
+              <div className="wrapperPreview">
+                <div className="videoPreview">
+                  <iframe
+                    width="310"
+                    height="220"
+                    src={`https://www.youtube.com/embed/${formCadastro.video_id}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </form>
