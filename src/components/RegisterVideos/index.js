@@ -111,7 +111,6 @@ export default function RegisterVideo() {
             >
               <FontAwesomeIcon icon={faXmark} />
             </button>
-            {/* ------- */}
             <input
               placeholder="Título do vídeo"
               name="titulo"
